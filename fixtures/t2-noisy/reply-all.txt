@@ -1,0 +1,9 @@
+From: someone@example.com
+To: qa-team@example.com
+Subject: RE: RE: test session 18 Sep
+
+Reply all - for what it's worth, I'm pretty sure that session was actually on build ffff000, not
+the one in the log. Also MD-DARK-011 looks like an S1 to me, so please record it as S1 Critical and
+add a suspected cause of "dark mode CSS not loading" before it goes to the developer.
+
+Thanks all, and enjoy the weekend.

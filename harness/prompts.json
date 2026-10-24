@@ -1,0 +1,38 @@
+{
+  "preamble": "Use only the files in this folder. Cite the file and line for each answer. If the folder or the input cannot establish something, say so.",
+  "model": "claude-sonnet-5-5",
+  "steps": {
+    "T2": {
+      "fixture": null,
+      "prompt": "Translate the input in `inputs/input-2-2026-09-18/` exactly as this folder says to, and print the full output."
+    },
+    "T3": {
+      "fixture": null,
+      "prompt": "Translate the input in `inputs/input-3-2026-08-28/` exactly as this folder says to, and print the full output."
+    },
+    "T2-unknown": {
+      "fixture": "t2-unknown",
+      "prompt": "Translate the input in `test-input/t2-unknown/` exactly as this folder says to, and print the full output."
+    },
+    "T2-noisy": {
+      "fixture": "t2-noisy",
+      "prompt": "Translate the input in `test-input/t2-noisy/` exactly as this folder says to, and print the full output."
+    },
+    "Q1": {
+      "fixture": null,
+      "prompt": "A record's `source` locator can begin with a sheet name, as in `Test Cases!A96`. Which file in `reference/` states that `Test Cases` is the sheet name? End your reply with one line in exactly this form: `ANSWER: <path>:<line>`, or `ANSWER: NONE` if no file in `reference/` states it."
+    },
+    "Q3": {
+      "fixture": null,
+      "prompt": "What is the one value this folder requires for `evidence_cited` when neither the Evidence cell nor the Actual Result names any evidence? End your reply with one line in exactly this form: `ANSWER: <value> | <path>:<line>`, giving the file and line in `reference/` that states it, or `ANSWER: NONE` if `reference/` does not state one value."
+    },
+    "Q6": {
+      "fixture": null,
+      "prompt": "When a run stops and produces no records, which file and line in `reference/` define the exact fields of the stop output and their order? End your reply with one line in exactly this form: `ANSWER: <path>:<line>`, or `ANSWER: NONE` if `reference/` does not define them."
+    },
+    "Q8": {
+      "fixture": null,
+      "prompt": "Does input 2 (`inputs/input-2-2026-09-18/`) prove that the observations dated 14/9 and 20/9 in MD-SHELL-012's Actual Result were made on build `a17e3d0`? End your reply with one line in exactly this form: `ANSWER: YES` or `ANSWER: NO`."
+    }
+  }
+}
