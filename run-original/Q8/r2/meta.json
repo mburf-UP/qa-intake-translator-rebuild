@@ -1,0 +1,53 @@
+{
+  "arm": "original",
+  "step": "Q8",
+  "run": "2",
+  "argv": [
+    "claude",
+    "-p",
+    "--restricted",
+    "--strict-mcp-config",
+    "--safe-mode",
+    "--permission-mode",
+    "dontAsk",
+    "--model",
+    "claude-sonnet-5-5",
+    "--tools",
+    "Read,Glob,Grep",
+    "--no-session-persistence",
+    "--output-format",
+    "json",
+    "Use only the files in this folder. Cite the file and line for each answer. If the folder or the input cannot establish something, say so.\n\nDoes input 2 (`inputs/input-2-2026-09-18/`) prove that the observations dated 14/9 and 20/9 in MD-SHELL-012's Actual Result were made on build `a17e3d0`? End your reply with one line in exactly this form: `ANSWER: YES` or `ANSWER: NO`."
+  ],
+  "cwd": "<temporary copy of original/>",
+  "started_utc": "2026-10-24T01:07:50Z",
+  "finished_utc": "2026-10-24T01:08:02Z",
+  "exit_code": 0,
+  "claude_version": "2.1.309 (Claude Code)",
+  "requested_model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "permission_denials": [],
+  "is_error": false,
+  "cost_usd": 0.0484669,
+  "python": "3.14.8",
+  "platform": "Linux-7.2.8-9-omarchy-x86_64-with-glibc2.44",
+  "prompt_sha256": "cc17c71110c491847aa8b1c407b2b70e14c87f4480626179716fac1e3e095f69",
+  "files_given_sha256": {
+    ".gitignore": "2bdfdb216230559f36faf46907142b8afd478401150f810e1ddaf9a4fdcc656c",
+    "README.md": "d8489f4c4ab4f55cf4fd3ce864fb44fb86837bdac1c5c7da259a620293c4a516",
+    "examples.md": "88b1f1829f044dbaf4458b78e46a7230026652618b133a6cce9d58784685a157",
+    "identity.md": "4e12923a55f762cf8dd9b1daab81ac6e37014ea10c019c4fb93da98cfd3306f5",
+    "inputs/README.md": "7e5c1e647e5ed1fe6c2d88c6b2a20b6ab0f533fdac5e84baded450baad83e028",
+    "inputs/input-1-2026-09-20/cases.csv": "eb2c95d0c8a195ea1ff3904b384a287ee5ba288fd66b8d6cbea1ded00bf24a37",
+    "inputs/input-1-2026-09-20/session.md": "c1a21ddb5a6333bf1d3e8c0aa2c62549762f33c98ce3929a94cfa1be04cb9ca9",
+    "inputs/input-2-2026-09-18/cases.csv": "b6652ab1daa7eb2a8614bb330533e66b54f4f56984f7016cc7f37d982a026479",
+    "inputs/input-2-2026-09-18/session.md": "323e763521331ffa3210cc58ccb15746ee9a0d8fe142ee73fa30a09b59dbf808",
+    "inputs/input-3-2026-08-28/cases.csv": "4b2cb5f95b46b4da7bcf457ef0e4f4d65278f33b666401ee2d68ecb8cc9a6e13",
+    "inputs/input-3-2026-08-28/session.md": "a665cda02dd235287ec74de3b60ec282a085b4a13760473803084be6c2c3967f",
+    "reference/field-definitions.md": "59eae6eb321731ea43de4e9606c2740dcb2754a188704a753c717c4ad36c4936",
+    "reference/output-schema.md": "31c0465c77239e2f7548d2a58c3e4c7ccb458c05ab29cdcdf65419a511810e3b",
+    "rules.md": "6388e16038232f20daa6c24b4c80f51c45eab220c325e448f2234adf8ec99ced"
+  }
+}
