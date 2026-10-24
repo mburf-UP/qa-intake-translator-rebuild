@@ -8,10 +8,10 @@ dropped record fails in a minute, and the stop output's fields written into refe
 fixed shape."*
 
 **The result:** on the committed runs, the rebuild scored 1 on five of the six questions aimed at the
-feedback, against an original that scored 0 on all six. An independent re-run gave four, because one
-question flipped. The rebuild failed the sixth, on the stop output, and under the rule we committed first
+feedback, against an original that scored 0 on all six. The first independent re-run, the only complete one,
+gave four, because one question flipped. The rebuild failed the sixth, on the stop output, and under the rule we committed first
 that means it fails its main claim. We left the rule as committed. `results.md` has the detail,
-including the three ties, an independent re-run in which Q2 flipped, and the known limits.
+including the three ties, two independent checks (in the first, Q2 flipped), and the known limits.
 
 ## What is here
 
@@ -23,7 +23,7 @@ including the three ties, an independent re-run in which Q2 flipped, and the kno
 | `harness/`, `fixtures/` | The runner, the scorer, the answer key and two test inputs | B |
 | `run-original/` | Raw runs against `original/`, and its scores | C `4b0623c` |
 | `rebuild/` | The rebuild: identity, rules, examples, reference/, README, and `check.py` | D `59fdac5` |
-| `run-rebuild/` | Raw runs against `rebuild/`, the same questions in the same order | E `15bdb23` |
+| `run-rebuild/` | Raw runs against `rebuild/`, the same questions and prompts. Not run in order: see `results.md` | E `15bdb23` |
 | `results.md` | What changed, question by question, including what tied, what lost, and what was left alone | F |
 
 `questions.md` was committed before `rebuild/` existed, and nothing in A to E has been edited since its
@@ -36,8 +36,8 @@ git log --format='%h %cI %s' --name-status --reverse
 ## Check it yourself
 
 Needs Python 3.9 or later and git. Nothing to install. Before publishing, `key.py`, `score.py`, `make_fixtures.py --check` and
-`check.py` were run on Python 3.9.25 and 3.14.8 on Linux; the independent re-run had only 3.14.8. Not
-tested on macOS.
+`check.py` were run on Python 3.9.25 and 3.14.8 on Linux; no log of the 3.9.25 run ships, and the
+independent checks had only 3.14.8. Not tested on macOS.
 
 **The original is the judged commit, unchanged.** These print the same hash twice,
 `dbc68c319ce37056d2aa58ff1d591a6ea68fbecf`: the first from this repo, the second from the judged repo.
@@ -79,6 +79,19 @@ python3 harness/score.py original
 ```
 
 The same with `rebuild` in place of `original`. `harness/run.py` names the model, `claude-sonnet-5-5`,
-and every flag. Each committed run records the exact command, prompt and hashes it used. The committed
+and every flag. It sets no effort level, so Claude Code's default applies; the committed runs used
+Claude Code 2.1.309. Each committed run records the exact command, prompt and hashes it used. The committed
 marks reproduce exactly from the committed transcripts. A fresh AI run may not: two runs per arm cannot
 show how much marks vary, and Q7 already varies between runs.
+
+## What you cannot check from this repo
+
+Each is in `results.md` under "Known limits":
+
+- that `feedback.md` is the file the judges sent;
+- that the workbook's sheet is called `Test Cases`, because only CSV exports ship;
+- the engagement claims carried from the judged entry: its method's size, backlog figures, the owner's
+  permission and the de-identification;
+- that the answer key is right by a second route: it comes from the same CSVs both arms read;
+- the two independent checks: their reports and fresh transcripts are not here;
+- the Python 3.9.25 run above.

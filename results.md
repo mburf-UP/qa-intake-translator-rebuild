@@ -1,8 +1,8 @@
 # Results
 
 **By the rule this repo committed before the rebuild existed, the rebuild failed its main claim.** On the
-committed runs it scored 1 on Q1 to Q5, against an original that scored 0 on every one of them. On an
-independent re-run its clear wins were four, because Q2 flipped. It failed Q6: the scorer's citation check
+committed runs it scored 1 on Q1 to Q5, against an original that scored 0 on every one of them. On the
+first independent re-run, the only complete one, its clear wins were four, because Q2 flipped. It failed Q6: the scorer's citation check
 missed by one line, and one of its two committed stop outputs breaks the stop layout the rebuild itself
 defines. Q7 and Q8 tied, as `questions.md` predicted.
 
@@ -10,11 +10,12 @@ defines. Q7 and Q8 tied, as `questions.md` predicted.
 scored 0 on Q6. **We have not changed the rule, re-run the question or overridden the mark.** What
 happened is set out below, so you can decide what it means.
 
-## An independent re-run, after this file was first written
+## Two independent checks, after this file was first written
 
 After the repo went public, a fresh Codex session that had no part in building this entry cloned it and
-re-ran all 32 AI steps from the committed prompts, using Claude Code 2.1.310. Its report is not in this
-repo; what it found is below, and none of it changes the committed marks.
+re-ran all 32 AI steps from the committed prompts, using Claude Code 2.1.310. Its report and its fresh
+transcripts are not in this repo, so the Q2 flip below cannot be replayed from here. What it found is
+below, and none of it changes the committed marks.
 
 - **The original scored the same:** 0 on Q1–Q7, 1 on Q8.
 - **The rebuild scored 1, 0, 1, 1, 1, 0, 0, 1**, against the committed 1, 1, 1, 1, 1, 0, 0, 1. **Q2 flipped:**
@@ -27,6 +28,30 @@ repo; what it found is below, and none of it changes the committed marks.
   and line for each answer", and that pulls commentary into the output.
 - **A missing-build input**, removing `session.md`, stopped correctly in both fresh rebuild runs, and
   one of the two again added prose around the stop.
+
+A second fresh Codex session checked commit `974f7cd` the same way. Claude's usage limit stopped 18 of
+its 32 AI re-runs, so it gives no full set of fresh marks. On shipped input 1, the first run of each
+arm completed, with all 30 records, and passed `check.py`; neither second run could be made. Its
+report and transcripts are not here either. What it added:
+
+- **Both of its fresh stop outputs failed `check.py`**, one also on the first line. The first check
+  reported its second fresh stop output failing, so at least three of the four fresh stop outputs
+  across the two checks failed. Of the two committed ones, one fails.
+- **In its fresh input-2 runs, three records wrote the words `(blank line)` into `observed`.** The
+  committed runs do not.
+- **`check.py` also passes a wrong stop condition.** That adds to the faults listed under "What
+  `check.py` does and does not check".
+- **The runs were not made in the order `questions.md` promises.** It says "same order, Q1 to Q8".
+  The `started_utc` in each `meta.json` shows each arm's eight first runs starting in the same second,
+  and the second runs starting in a different order in each arm. Each run is a fresh session on its
+  own copy of the folder. *Our reading, not proven:* nothing passes from one run to the next, so the
+  order should not change a mark. The promise was still not kept.
+- **It reported that four committed input-2 records lose blank lines.** We compared the raw text of
+  `expected_result` and `observed` in both committed input-2 outputs with the CSV, keeping empty lines
+  and removing the field indent. The blank lines are present as empty lines (for example
+  `run-rebuild/T2/r1/result.md:66-72`), and Codex, checking separately, found the same. Parsed values
+  cannot settle this, because `harness/common.py` drops empty continuation lines. In those two
+  fields, the only differences from the CSV are the two `␣␣` values under "Known limits".
 
 ## Question by question
 
@@ -126,15 +151,22 @@ can repeat. Both of the rebuild's real T2 outputs, and both of the original's, p
 
 - **AI results vary.** Two runs per arm are too few to show how much. Q2 flipped on a re-run, Q7 differs
   between any two runs, and stop outputs sometimes carry commentary. No effort setting was fixed:
-  `harness/run.py` uses Claude Code's default. The committed runs record version 2.1.309; the independent
-  re-run used 2.1.310.
-- **No independent unseen input was tested.** The independent check also ran two rows held back from
-  input 1, but those rows ship in this repo, so they are not inputs the folder has never seen.
+  `harness/run.py` uses Claude Code's default. The committed runs record version 2.1.309; both independent
+  checks used 2.1.310.
+- **No independent unseen input was tested.** The first independent check also ran two rows held
+  back from input 1, but those rows ship in this repo, so they are not inputs the folder has never
+  seen. The second found no real worksheet export of this shape to use.
+- **The independent checks' reports and fresh transcripts are not in this repo.** What they found is
+  as reported above; it cannot be replayed from here.
+- **No log of the Python 3.9.25 run ships.** That claim in `README.md` rests on our word.
+- **The runs were not made in order** (above).
 - **Noise reaches the prose around the records.** In both rebuild noisy runs, the reply-all's `ffff000`
   and "S1 Critical" are quoted in the run's notes saying they were ignored, though in no record. The
   schema gives that material no field.
 - **`observed` shows two trailing spaces as `␣␣`**, a notation inherited from the original's examples,
   so a byte-for-byte comparison with the CSV fails on two rows (MD-SHELL-014 and MD-SEC-006).
+- **`feedback.md` cannot be checked against the file the judges sent.** `README.md` gives its SHA-256;
+  the judges hold the original.
 - **The sheet name `Test Cases` cannot be checked from this repo.** The workbook is a live commercial
   engagement and does not ship; `rebuild/reference/output-schema.md` §2.2 declares the name, and that
   declaration is the source.
