@@ -1,0 +1,3 @@
+Use only the files in this folder. Cite the file and line for each answer. If the folder or the input cannot establish something, say so.
+
+A record's `source` locator can begin with a sheet name, as in `Test Cases!A96`. Which file in `reference/` states that `Test Cases` is the sheet name? End your reply with one line in exactly this form: `ANSWER: <path>:<line>`, or `ANSWER: NONE` if no file in `reference/` states it.

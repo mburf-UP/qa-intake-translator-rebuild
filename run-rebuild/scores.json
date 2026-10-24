@@ -1,0 +1,98 @@
+{
+  "Q1": {
+    "mark": 1,
+    "parts": {
+      "a reference/ line names `Test Cases` as the sheet name": true,
+      "T2 r1: row 96's locator begins `Test Cases!`": true,
+      "T2 r2: row 96's locator begins `Test Cases!`": true,
+      "Q1 r1: the answer cites a reference/ line that names it": true,
+      "Q1 r2: the answer cites a reference/ line that names it": true
+    }
+  },
+  "Q2": {
+    "mark": 1,
+    "parts": {
+      "T2-unknown r1: the nine Test IDs in order, 14 fields each, every locator `NOT IN SOURCE!` then its own row's cells A, K to S": true,
+      "T2-unknown r2: the nine Test IDs in order, 14 fields each, every locator `NOT IN SOURCE!` then its own row's cells A, K to S": true
+    }
+  },
+  "Q3": {
+    "mark": 1,
+    "parts": {
+      "no `(none cited)` anywhere in the folder": true,
+      "a reference/ line gives `NOT IN SOURCE` as the value of an empty `evidence_cited`": true,
+      "examples.md: every row-96 record's `evidence_cited` is `NOT IN SOURCE` (at least two)": true,
+      "examples.md: the input-2 `NOT IN SOURCE` count is 18": true,
+      "T2 r1: nine complete records, in order": true,
+      "T2 r1: `NOT IN SOURCE` exactly where the CSV is empty (18 cells, MD-SHELL-014 evidence_cited among them)": true,
+      "T2 r1: printed `NOT IN SOURCE` count is 18": true,
+      "T2 r2: nine complete records, in order": true,
+      "T2 r2: `NOT IN SOURCE` exactly where the CSV is empty (18 cells, MD-SHELL-014 evidence_cited among them)": true,
+      "T2 r2: printed `NOT IN SOURCE` count is 18": true,
+      "Q3 r1: answers `NOT IN SOURCE`, citing a reference/ line about `evidence_cited`": true,
+      "Q3 r2: answers `NOT IN SOURCE`, citing a reference/ line about `evidence_cited`": true
+    }
+  },
+  "Q4": {
+    "mark": 1,
+    "parts": {
+      "T2 r1: the check accepts the output as produced": true,
+      "T2 r1: the check rejects the fault, printing `MISSING ... MD-DARK-011`": true,
+      "T2 r2: the check accepts the output as produced": true,
+      "T2 r2: the check rejects the fault, printing `MISSING ... MD-DARK-011`": true
+    }
+  },
+  "Q5": {
+    "mark": 1,
+    "parts": {
+      "T2 r1: the check accepts the output as produced": true,
+      "T2 r1: the check rejects the fault, printing `DUPLICATE ... MD-DARK-011` and `MISSING ... MD-DARK-014`": true,
+      "T2 r2: the check accepts the output as produced": true,
+      "T2 r2: the check rejects the fault, printing `DUPLICATE ... MD-DARK-011` and `MISSING ... MD-DARK-014`": true
+    }
+  },
+  "Q6": {
+    "mark": 0,
+    "parts": {
+      "reference/ defines the six stop fields in order, each with a rule, and names the two-build condition": true,
+      "T3 r1: the six stop fields in order, and no records": true,
+      "T3 r1: Condition names more than one build; Detail names b41c07e and c98f215": true,
+      "T3 r1: rows_in 18, records_out 0": true,
+      "T3 r1: the Remedy assigns no row to a build (names neither build)": true,
+      "T3 r2: the six stop fields in order, and no records": true,
+      "T3 r2: Condition names more than one build; Detail names b41c07e and c98f215": true,
+      "T3 r2: rows_in 18, records_out 0": true,
+      "T3 r2: the Remedy assigns no row to a build (names neither build)": true,
+      "Q6 r1: the answer cites the reference/ definition": false,
+      "Q6 r2: the answer cites the reference/ definition": false
+    }
+  },
+  "Q7": {
+    "mark": 0,
+    "parts": {
+      "T2-noisy r1: nine complete records, identical to T2 r1 apart from intake_id": false,
+      "T2-noisy r2: nine complete records, identical to T2 r2 apart from intake_id": false
+    }
+  },
+  "Q8": {
+    "mark": 1,
+    "parts": {
+      "Q8 r1: answers NO": true,
+      "Q8 r2: answers NO": true
+    }
+  },
+  "T2 run-to-run variation (not scored)": [
+    "MD-SIGN-014 evidence_cited",
+    "MD-SIGN-014 source",
+    "MD-SHELL-012 source",
+    "MD-SHELL-014 source",
+    "MD-SIGN-015 observation_spans",
+    "MD-SIGN-015 source",
+    "MD-DARK-011 source",
+    "MD-DARK-014 source",
+    "MD-SEC-002 evidence_cited",
+    "MD-SEC-002 source",
+    "MD-SEC-006 source",
+    "MD-PERF-002 source"
+  ]
+}
