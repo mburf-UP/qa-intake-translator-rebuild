@@ -7,17 +7,18 @@ file and tested old against new.
 dropped record fails in a minute, and the stop output's fields written into reference/ so a stop is a
 fixed shape."*
 
-**The result:** the rebuild won five of the six questions aimed at the feedback, against an original that
-scored 0 on all six. It failed the sixth, by one line of citation, and under the rule we committed first
-that means the rebuild fails its main claim. We left the rule as committed. `results.md` has the detail,
-including the three ties.
+**The result:** on the committed runs, the rebuild scored 1 on five of the six questions aimed at the
+feedback, against an original that scored 0 on all six. An independent re-run gave four, because one
+question flipped. The rebuild failed the sixth, on the stop output, and under the rule we committed first
+that means it fails its main claim. We left the rule as committed. `results.md` has the detail,
+including the three ties, an independent re-run in which Q2 flipped, and the known limits.
 
 ## What is here
 
 | Path | What it is | Commit |
 |---|---|---|
 | `original/` | The judged entry, exported unchanged from `ed18d22` | A `ce531a7` |
-| `feedback.md` | The judges' feedback file, verbatim | A |
+| `feedback.md` | The judges' feedback file, verbatim, SHA-256 `ee07ac0bb9a8479c867dab84a39553f20ca2c27b43a1068734e80141aa4995b0`. The judges hold the file they sent; it cannot be checked from this repo | A |
 | `questions.md` | Eight questions from the feedback, with expected answers, scoring, loss and exclusion rules | B `9e73239` |
 | `harness/`, `fixtures/` | The runner, the scorer, the answer key and two test inputs | B |
 | `run-original/` | Raw runs against `original/`, and its scores | C `4b0623c` |
@@ -34,7 +35,9 @@ git log --format='%h %cI %s' --name-status --reverse
 
 ## Check it yourself
 
-Needs Python 3.9 or later and git. Nothing to install.
+Needs Python 3.9 or later and git. Nothing to install. Before publishing, `key.py`, `score.py`, `make_fixtures.py --check` and
+`check.py` were run on Python 3.9.25 and 3.14.8 on Linux; the independent re-run had only 3.14.8. Not
+tested on macOS.
 
 **The original is the judged commit, unchanged.** These print the same hash twice,
 `dbc68c319ce37056d2aa58ff1d591a6ea68fbecf`: the first from this repo, the second from the judged repo.
